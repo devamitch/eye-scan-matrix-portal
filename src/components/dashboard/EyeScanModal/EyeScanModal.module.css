@@ -1,0 +1,406 @@
+.modalContainer {
+	max-width: 90vw;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	color: var(--metricValue);
+	position: relative;
+}
+
+.cameraContainer {
+	position: relative;
+	width: 100%;
+	height: 70vh;
+	border-radius: 20px;
+	overflow: hidden;
+}
+.metricsOverlay {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	z-index: 10;
+	background: rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(1px);
+	border-radius: 12px;
+	padding: 16px;
+}
+
+
+.metricsRow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.overlayLabel {
+	font-size: 20px;
+	color: var(--cardBackground);
+	font-weight: 600;
+}
+
+.overlayValue {
+	display: block;
+	font-size: 18px;
+	font-weight: 600;
+	padding: 4px;
+}
+
+.scanControls {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	z-index: 10;
+}
+
+.timerDisplay {
+	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+	border-radius: 50%;
+	width: 45px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--cardBackground);
+}
+
+
+.countdown {
+	font-size: 32px;
+	font-weight: 700;
+	color: var(--lowValue);
+	margin-bottom: 16px;
+}
+
+
+.resultsHeader{
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--metricValue);
+	text-align: center;
+	margin-bottom: 24px;
+}
+.resultsTitle{
+	font-size: 24px;
+	font-weight: 700;
+	color: var(--vHighValue);
+	text-align: center;
+}
+.scanResultsTitle {
+	font-size: 20px;
+	font-weight: 600;
+	margin: 0 0 16px 0;
+	color: var(--metricValue);
+	text-align: center;
+}
+
+.metricCard {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	background: var(--cardBackground);
+	border: 1px solid var(--subtleCardBackground, rgba(255, 255, 255, 0.1));
+	border-radius: 20px;
+	padding: 16px;
+	margin-bottom: 8px;
+	transition: all 0.2s ease;
+}
+
+
+.cardIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	background: var(--subtleCardBackground);
+	border-radius: 16px;
+	color: var(--metricValue);
+	flex-shrink: 0;
+}
+
+.cardContent {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.metricHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 4px;
+}
+
+.recommendedValue {
+	font-size: 12px;
+	color: var(--lightText);
+	opacity: 0.7;
+}
+
+.metricValue[data-status="low"] {
+	color: var(--lowValue);
+}
+
+.metricValue[data-status="moderate"] {
+	color: var(--modValue);
+}
+
+.metricValue[data-status="high"] {
+	color: var(--highValue);
+}
+
+.metricValue[data-status="very-high"] {
+	color: var(--vHighValue);
+}
+
+.comparisonResults {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+.metricsSection {
+	padding: 16px;
+	background: var(--cardBackground);
+	border-radius: 8px;
+}
+
+.metricsTitle {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 16px 0;
+	color: var(--metricValue);
+	text-align: center;
+}
+
+.metricsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 8px;
+}
+
+.metricItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 8px 0;
+}
+
+
+.metricLabel {
+	font-size: 14px;
+	color: var(--lightText);
+	font-weight: 500;
+}
+
+.metricValue {
+	font-size: 16px;
+	font-weight: 600;
+	padding: 4px;
+	color: var(--metricValue);
+}
+
+.good {
+	color: var(--lowValue);
+
+}
+
+.moderate {
+	color: var(--modValue);
+}
+
+.poor {
+	color: var(--highValue);
+
+}
+
+.high {
+	color: var(--highValue);
+
+}
+
+.low {
+	color: var(--lowValue);
+
+}
+
+.resultsFooter {
+	padding: 12px;
+	display: flex;
+	justify-content: center;
+}
+
+
+.stopButton {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: var(--highValue);
+	color: var(--cardBackground);
+	padding: 10px 20px;
+	border-radius:12px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.stopButton:hover {
+	background: var(--vHighValue);
+	transform: translateY(-1px);
+}
+
+.closeButton {
+	background: var(--lightMetricValue);
+	color: var(--cardBackground);
+	padding: 12px 24px;
+	border-radius: 8px;
+	width: 100%;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+	background: var(--metricValue);
+	transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+	.modalContainer {
+		max-width: 95vw;
+	}
+
+	.cameraContainer {
+		height: 60vh;
+		border-radius: 12px;
+	}
+
+	.metricsOverlay {
+		top: 10px;
+		left: 10px;
+		right: 10px;
+		border-radius: 8px;
+		padding: 10px;
+	}
+
+	.overlayLabel {
+		font-size: 12px;
+	}
+
+	.overlayValue {
+		font-size: 11px;
+	}
+
+	.scanControls {
+		bottom: 12px;
+		gap: 12px;
+	}
+
+	.timerDisplay {
+		width: 35px;
+		height: 35px;
+		font-size: 12px;
+	}
+
+	.countdown {
+		font-size: 24px;
+		margin-bottom: 12px;
+	}
+
+	.resultsHeader {
+		font-size: 16px;
+		margin-bottom: 16px;
+	}
+	
+
+	.resultsTitle {
+		font-size: 20px;
+	}
+
+	.comparisonResults {
+		gap: 16px;
+	}
+
+	.metricsSection {
+		padding: 12px;
+		border-radius: 6px;
+	}
+
+	.metricsTitle {
+		font-size: 14px;
+		margin: 0 0 12px 0;
+	}
+
+	.metricsGrid {
+		grid-template-columns: 1fr;
+		gap: 8px;
+	}
+
+	.metricCard {
+		padding: 12px;
+		gap: 12px;
+		margin-bottom: 8px;
+		border-radius: 16px;
+	}
+
+	.cardIcon {
+		width: 42px;
+		height: 42px;
+		border-radius: 12px;
+	}
+
+	.metricHeader {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2px;
+	}
+
+	.recommendedValue {
+		font-size: 10px;
+	}
+
+	.metricValue {
+		font-size: 16px;
+	}
+
+	.metricItem {
+		padding: 6px 0;
+	}
+
+	.metricLabel {
+		font-size: 12px;
+	}
+
+	.metricValue {
+		font-size: 12px;
+		padding: 2px;
+	}
+
+	.resultsFooter {
+		padding: 6px;
+		margin-top: 10px;
+	}
+
+	.stopButton {
+		padding: 8px ;
+		border-radius: 8px;
+		font-size: 12px;
+	}
+
+	.closeButton {
+		padding: 10px ;
+		border-radius: 12px;
+		font-size: 12px;
+	}
+}
